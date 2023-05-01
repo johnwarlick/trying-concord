@@ -1,0 +1,15 @@
+---
+- hosts: "{{ ansible_limit | default('localhost') }}"
+  collections:
+  - netapp.ontap
+  tasks:
+  - name: Get NetApp info as Cluster Admin (Password Authentication)
+    netapp.ontap.na_ontap_info:
+      hostname: "{{ ontap_hostname }}"
+      username: "{{ ontap_username }}"
+      password: "{{ ontap_password }}"
+      https: "{{ https }}"
+      validate_certs: "{{ validate_certs }}"
+    register: ontap_info
+  - debug:
+      msg: "{{ ontap_info.ontap_info }}"
