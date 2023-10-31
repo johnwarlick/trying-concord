@@ -8,5 +8,6 @@ flows:
   - task: ansible
     in:
       #dockerImage: "schmots1/netapp-ansible"
-      dockerImage: "walmartlabs/concord-ansible"
+      #dockerImage: "walmartlabs/concord-ansible"
+      dockerImage: leoldchap/concord-ansible-netapp
       playbook: test.yml
